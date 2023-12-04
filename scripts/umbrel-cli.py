@@ -2,7 +2,10 @@
 import sys
 import subprocess
 
+<<<<<<< HEAD
 version = "0.1"
+=======
+>>>>>>> parent of dae9234 (finished first build of cli interface)
 #umbrel
 def install_umbrel():
     subprocess.run(["./install"])
@@ -22,6 +25,7 @@ def debug_umbrel():
 def backup_umbrel():
     subprocess.run(["./backup/backup"])
 
+<<<<<<< HEAD
 def app_command(action=None, app_name=None):
     command = ["./app"]
     if action:
@@ -39,6 +43,13 @@ def repo_command(action=None, repo=None):
         command.append(repo_name)
 
     subprocess.run(command)
+=======
+def app_command(action, app_name):
+    subprocess.run(["./app", action, app_name])
+
+def repo_command(action, repo):
+    subprocess.run(["./repo", action, repo])
+>>>>>>> parent of dae9234 (finished first build of cli interface)
 
 #umbrel-os
 def change_password():
@@ -49,10 +60,17 @@ def umbrel_details():
 
 #print cli command options
 def show_usage():
+<<<<<<< HEAD
     print(f'''
         CLI (v${version}) for managing Umbrel
 
         Usage: umbrel <command> [<arguments>]
+=======
+    print('''
+        CLI (v${VERSION}) for managing Umbrel
+
+        Usage: app <command> <app> [<arguments>]
+>>>>>>> parent of dae9234 (finished first build of cli interface)
 
         Commands:
           install               Installs Umbrel
@@ -88,6 +106,7 @@ if __name__ == "__main__":
         debug_umbrel()
     elif command == "backup":
         backup_umbrel()
+<<<<<<< HEAD
     elif command == "app":
         app_action = sys.argv[2] if len(sys.argv) >= 3 else None
         app_name = sys.argv[3] if len(sys.argv) == 4 else None
@@ -95,6 +114,15 @@ if __name__ == "__main__":
     elif command == "repo":
         repo_action = sys.argv[2] if len(sys.argv) >= 3 else None
         repo_name = sys.argv[3] if len(sys.argv) == 4 else None
+=======
+    elif command == "app" and len(sys.argv) == 4:
+        app_action = sys.argv[2]
+        app_name = sys.argv[3]
+        app_command(app_action, app_name)
+    elif command == "repo" and len(sys.argv) == 4:
+        repo_action = sys.argv[2]
+        repo_name = sys.argv[3]
+>>>>>>> parent of dae9234 (finished first build of cli interface)
         repo_command(repo_action, repo_name)
     elif command == "change-password":
         change_password()
